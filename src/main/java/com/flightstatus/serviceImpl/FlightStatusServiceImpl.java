@@ -1,6 +1,7 @@
 package com.flightstatus.serviceImpl;
 
 import com.flightstatus.entity.FlightStatus;
+import com.flightstatus.repository.FlightRepository;
 import com.flightstatus.repository.FlightStatusRepository;
 import com.flightstatus.service.FlightStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ public class FlightStatusServiceImpl implements FlightStatusService {
 
     @Autowired
     private FlightStatusRepository flightStatusRepository;
+    @Autowired
+    private FlightRepository flightRepository;
 
     @Override
     public List<FlightStatus> getAllStatuses() {
@@ -38,5 +41,6 @@ public class FlightStatusServiceImpl implements FlightStatusService {
     public List<FlightStatus> getFlightStatusesByFlightId(Long flightId) {
         return flightStatusRepository.findByFlightId(flightId);
     }
+
 
 }
